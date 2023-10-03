@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use app\Http\Controllers\Auth\LoginController;
+use app\Http\Controllers\Admin\SpecializationController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+// Route::get('/', [LoginController::class,'_construct']);
+// Route::get('/login', [LoginController::class,'_construct']);
+// Route::get('login', array(
+//     'uses' => 'MainController@showLogin'
+//   ));
+//   // route to process the form
+//   Route::post('login', array(
+//     'uses' => 'MainController@doLogin'
+//   ));
+
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/specialization',[App\Http\Controllers\Admin\SpecializationController::class, 'index']);
+Route::post('/specialization/create',[App\Http\Controllers\Admin\SpecializationController::class, 'create'])->name('specialization.create');
