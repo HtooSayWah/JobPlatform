@@ -31,3 +31,4 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/specialization',[App\Http\Controllers\Admin\SpecializationController::class, 'index']);
 Route::post('/specialization/create',[App\Http\Controllers\Admin\SpecializationController::class, 'create'])->name('specialization.create');
+Route::get('/postJob',[App\Http\Controllers\Admin\JobController::class, 'index']);

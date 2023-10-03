@@ -44,7 +44,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-success"
-                                href="{{ url('/job/add') }}">
+                                href="{{ url('/postJob') }}">
                                 + Post Job
                                 </a>
                             </li>
