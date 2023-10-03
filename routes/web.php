@@ -33,3 +33,4 @@ Route::get('/specialization',[App\Http\Controllers\Admin\SpecializationControlle
 Route::post('/specialization/create',[App\Http\Controllers\Admin\SpecializationController::class, 'create'])->name('specialization.create');
 Route::get('/postJob',[App\Http\Controllers\Admin\JobController::class, 'index']);
 Route::post('/postJob/create',[App\Http\Controllers\Admin\JobController::class, 'create'])->name('postJob.create');
+// Route::get('/searchAutocomplete', [SearchController::class, 'autocomplete'])->name('searchAutocomplete');

@@ -31,7 +31,7 @@ class JobController extends Controller
         // }
         
 
-        $job = new Job;
+        $job = new job;
         $job -> title = request()-> title;
         $job -> description = request()-> description;
         $job -> employer_id = 1;

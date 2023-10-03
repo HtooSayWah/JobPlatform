@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->string("title");
-            $table->string("description");
+            $table->text("description");
             $table->integer("employer_id");
             $table->integer("specializaion_id");
             $table->string("location");
             $table->string("status");
             $table->string("salary");
-            $table->string("responsibility");
-            $table->string("requirement");
+            $table->text("responsibility");
+            $table->text("requirement");
             $table->string("type");
             $table->timestamps();
         });
