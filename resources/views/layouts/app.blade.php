@@ -36,6 +36,8 @@
                         @guest
                         
                         @else
+                        <!-- // user type query -->
+                            @if ($type == 1)
                             <li class="nav-item">
                                 <a class="nav-link text-success"
                                 href="{{ url('/specialization') }}">
@@ -48,6 +50,20 @@
                                 + Post Job
                                 </a>
                             </li>
+                            @endif
+                        
+                            <!-- <li class="nav-item">
+                                <a class="nav-link text-success"
+                                href="{{ url('/specialization') }}">
+                                + Add Specialization
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-success"
+                                href="{{ url('/postJob') }}">
+                                + Post Job
+                                </a>
+                            </li> -->
 
                         @endguest
                     </ul>

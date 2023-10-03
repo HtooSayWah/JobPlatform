@@ -15,7 +15,9 @@
                 <label>Description</label>
                 <textarea class="tinymce-editor" name="description"></textarea>
             </div>
+            
             <div class="mb-3">
+                <label>Specialization</label>
                 <select class="form-select" name="specializaion_id">
                     @foreach ($specs as $spec)
                         <option value="{{ $spec->id }}">
