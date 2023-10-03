@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\job;
+use App\Models\Job;
+use App\Models\Specialization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,15 +12,10 @@ class JobController extends Controller
 {
     //
     public function index(){
-        //return "controller - Article List";
-       
-        //$data = Article::all();
-        //$users = DB::select('select * from student');   
-             
-        $data = DB::select('select * from specializations');
-        //$result = json_decode($data, true);
+        
+        $data = Specialization::all();        
         return view('admin.job',['specs' =>$data]);
-        //return 'Hello This is from Add Specialization';
+        
 
     }
     public function create(){
@@ -31,7 +27,7 @@ class JobController extends Controller
         // }
         
 
-        $job = new job;
+        $job = new Job;
         $job -> title = request()-> title;
         $job -> description = request()-> description;
         $job -> employer_id = 1;
@@ -42,7 +38,8 @@ class JobController extends Controller
         $job -> responsibility = request()->responsibility;
         $job -> requirement = request()->requirement;
         //$job -> type = request()->type;
-        $job -> type = "open";
+        $job ->closing_date = request()->closing_date;
+        $job -> type = request()->type;//type
 
 
         $job->save();

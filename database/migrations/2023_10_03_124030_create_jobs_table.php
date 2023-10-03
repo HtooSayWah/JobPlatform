@@ -23,7 +23,9 @@ return new class extends Migration
             $table->text("responsibility");
             $table->text("requirement");
             $table->string("type");
+            $table->dateTime('closing_date')->nullable();
             $table->timestamps();
+
         });
     }
 

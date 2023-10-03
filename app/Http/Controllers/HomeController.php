@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Specialization;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    // public function index()
+    // {
+    //     return view('home');
+    // }
     public function index()
     {
-        return view('home');
+        //return view('home');
+        $data = Specialization::all();
+        return view('home', ['specializations'=>$data]);
     }
 }
