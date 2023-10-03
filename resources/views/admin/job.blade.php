@@ -10,9 +10,10 @@
                 <label>Title</label>
                 <input type="text" name="title" class="form-control"> 
             </div> 
-            <div class="mb-3">
+            <!-- Description -->
+            <div class="form-group">
                 <label>Description</label>
-                <input type="text" name="description" class="form-control"> 
+                <textarea class="tinymce-editor" name="description"></textarea>
             </div>
             <div class="mb-3">
                 <select class="form-select" name="specializaion_id">
@@ -34,15 +35,15 @@
                 <label>Salary</label>
                 <input type="text" name="salary" class="form-control"> 
             </div>
-            <!-- responsibility -->
-            <div class="mb-3">
+            <!-- responsibility -->            
+            <div class="form-group">
                 <label>Responsibility</label>
-                <input type="text" name="responsibility" class="form-control"> 
+                <textarea class="tinymce-editor" name="responsibility"></textarea>
             </div>
             <!-- requirement -->
-            <div class="mb-3">
+            <div class="form-group">
                 <label>Requirement</label>
-                <input type="text" name="requirement" class="form-control"> 
+                <textarea class="tinymce-editor" name="requirement"></textarea>
             </div>
             <div class="mb-3">
                 <label class="col-sm-3 col-form-label">Job Type</label>
@@ -69,5 +70,22 @@
     }
     flatpickr("input[type=datetime-local]", config);
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/111vze4uzh9c24ufu4jpbq740gjshycd80v9f1mc6ao95e7w/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+  
+<script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+      mergetags_list: [
+        { value: 'First.Name', title: 'First Name' },
+        { value: 'Email', title: 'Email' },
+      ],
+      ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant"))
+    });
+  </script>
 @endpush
 @endsection
