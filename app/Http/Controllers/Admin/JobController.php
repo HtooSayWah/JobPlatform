@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Employer;
 use App\Models\Job;
 use App\Models\Specialization;
 use Illuminate\Http\Request;
@@ -13,8 +14,9 @@ class JobController extends Controller
     //
     public function index(){
         
-        $data = Specialization::all();        
-        return view('admin.job',['specs' =>$data]);
+        $data = Specialization::all();      
+        $empData = Employer::all();  
+        return view('admin.job',['specs' =>$data,'emps'=>$empData]);
         
 
     }
@@ -30,7 +32,7 @@ class JobController extends Controller
         $job = new Job;
         $job -> title = request()-> title;
         $job -> description = request()-> description;
-        $job -> employer_id = 1;
+        $job -> employer_id = request()-> employer_id;
         $job -> specializaion_id = request()-> specializaion_id;
         $job -> location =  request()-> location;
         $job -> status = "open";

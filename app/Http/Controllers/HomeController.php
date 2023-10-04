@@ -31,8 +31,10 @@ class HomeController extends Controller
     public function index()
     {
         //return view('home');
-        $data = Specialization::all();        
-        $type= auth()->user()->type;        
-        return view('home', ['specializations'=>$data,'type'=>$type]);
+        $data = Specialization::all();  
+        //$userType= auth()->user()->type;      
+        //$userType= Auth::user()->type;      
+        // return view('home', ['specializations'=>$data,'type'=>$userType]);
+        return view('home', ['specializations'=>$data]);
     }
 }

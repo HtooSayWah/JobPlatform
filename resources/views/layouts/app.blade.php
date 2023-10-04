@@ -36,8 +36,8 @@
                         @guest
                         
                         @else
-                        <!-- // user type query -->
-                            @if ($type == 1)
+                        <!-- // user type query -->                            
+                            @if (Auth::user()->type == 1)
                             <li class="nav-item">
                                 <a class="nav-link text-success"
                                 href="{{ url('/specialization') }}">

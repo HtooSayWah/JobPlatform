@@ -26,6 +26,16 @@
                     @endforeach
                 </select>
             </div>
+            <div class="mb-3">
+                <label>Employer</label>
+                <select class="form-select" name="employer_id">
+                    @foreach ($emps as $emp)
+                        <option value="{{ $emp->id }}">
+                        {{ $emp->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
 
             <!-- location -->
             <div class="mb-3">
