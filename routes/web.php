@@ -42,3 +42,5 @@ Route::get('employer/add',[App\Http\Controllers\Admin\EmployerController::class,
 Route::post('employer/add', [App\Http\Controllers\Admin\EmployerController::class, 'create']);
 //Route::get('/', [TutorialController::class,'index'])->name('index');
 //Route::get("/search",[TutorialController::class,'search']);
+Route::get('banner/add',[App\Http\Controllers\BannerController::class, 'add']);
+Route::post('banner/add', [App\Http\Controllers\BannerController::class, 'create']);

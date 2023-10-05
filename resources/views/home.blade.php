@@ -8,15 +8,30 @@
             <div class="carousel slide" data-bs-ride="carousel" id = "slide">
 
                 <div class="carousel-inner">
+                
                     <div class="carousel-item active">
-                        <div class = "bg-dark" style="height: 200px"></div>
+                   
+                    <div class = "row mb-2">
+                        <img src="{{ Storage::url('public/images/banner/pvjuRAe3FCDZz1NzuMLxmxp6M42RivUZOfnp4KqK.jpg') }}" alt="banner1">
                     </div>
+                  
+                    </div>
+                    <!-- Storage::url($employer->imgPath) -->
+                    
+                    @foreach($banners as $banner)
                     <div class="carousel-item">
+                        <div class = "row mb-2" style="height: 350px">
+                        <img src="{{ Storage::url($banner->imgPath) }}" alt="{{ $banner->name }}">
+                        </div>
+                    </div>
+                    @endforeach
+
+                    <!-- <div class="carousel-item">
                         <div class = "bg-primary" style="height: 200px"></div>
                     </div>
                     <div class="carousel-item">
                         <div class = "bg-success" style="height: 200px"></div>
-                    </div>
+                    </div> -->
                 </div>
                 <a href="#slide" class="carousel-control-prev" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon"></span>

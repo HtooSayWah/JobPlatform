@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\banner;
 use App\Models\Job;
 use Illuminate\Http\Request;
 use App\Models\Specialization;
@@ -36,8 +37,9 @@ class HomeController extends Controller
         //$userType= auth()->user()->type;      
         //$userType= Auth::user()->type;      
         // return view('home', ['specializations'=>$data,'type'=>$userType]);
-        $jobData = Job::all();       
-        return view('home', ['specializations'=>$data,'jobs'=>$jobData]);
+        $jobData = Job::all();   
+        $banners = banner::all();    
+        return view('home', ['specializations'=>$data,'jobs'=>$jobData,'banners'=>$banners]);
     }
     public function search(){
        
