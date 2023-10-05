@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use app\Http\Controllers\Auth\LoginController;
 use app\Http\Controllers\Admin\SpecializationController;
+use App\Models\Job;
+use App\Http\Controllers\TutorialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +35,10 @@ Route::get('/specialization',[App\Http\Controllers\Admin\SpecializationControlle
 Route::post('/specialization/create',[App\Http\Controllers\Admin\SpecializationController::class, 'create'])->name('specialization.create');
 Route::get('/postJob',[App\Http\Controllers\Admin\JobController::class, 'index']);
 Route::post('/postJob/create',[App\Http\Controllers\Admin\JobController::class, 'create'])->name('postJob.create');
-// Route::get('/searchAutocomplete', [SearchController::class, 'autocomplete'])->name('searchAutocomplete');
+Route::get('/home/jobsList', [App\Http\Controllers\SearchController::class, 'jobsList'])->name('home.jobsList');
+Route::get('/home/jobsListwithSpec/{id}', [App\Http\Controllers\SearchController::class, 'jobsListwithSpec'])->name('home.jobsListwithSpec');
+Route::get('/jobDetail/getDetail/{id}', [App\Http\Controllers\Admin\JobController::class, 'getDetail']);
+Route::get('employer/add',[App\Http\Controllers\Admin\EmployerController::class, 'add']);
+Route::post('employer/add', [App\Http\Controllers\Admin\EmployerController::class, 'create']);
+//Route::get('/', [TutorialController::class,'index'])->name('index');
+//Route::get("/search",[TutorialController::class,'search']);

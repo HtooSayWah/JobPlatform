@@ -48,5 +48,12 @@ class JobController extends Controller
         return redirect(("/home"));
     }
 
+    public function getDetail($id){
+        $data = Job::find($id); 
+        $employer_id = $data['employer_id'];
+        $employerData = Employer::find($employer_id); 
+        return view('admin.jobDetail',['jobDetails'=> $data, 'employer'=>$employerData]);
+    }
+
     
 }

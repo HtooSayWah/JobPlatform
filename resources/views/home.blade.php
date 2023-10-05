@@ -4,26 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-9">
-            <!-- <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>                
-            </div> -->
-            <!-- Carousel-->
             <div class="carousel slide" data-bs-ride="carousel" id = "slide">
-            <!-- <ul class="carousel-indicators">
-                <li data-bs-target="#slide" data-bs-slide-to="0" class="active"></li>
-                <li data-bs-target="#slide" data-bs-slide-to="1"></li>
-                <li data-bs-target="#slide" data-bs-slide-to="2"></li>
-            </ul> -->
+
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class = "bg-dark" style="height: 200px"></div>
@@ -42,16 +25,34 @@
                     <span class="carousel-control-next-icon"></span>
                 </a>
             </div>
+            <br>
+
             <!--Search Box-->  
-            <div class= "input-group mb-3 mt-3">
-                <input type="text" name="searchtext" class="form-control">
-                <button class = "btn btn-primary">Search</button>
+            <form method="get" action="{{ route('home.jobsList') }}">
+                <div class= "input-group mb-3 mt-3">
+                    <input type="search" class="form-control" placeholder="Find jobs here" name="search" >
+                    <input type="submit" value="Search" class="btn btn-primary">
+                </div>
+            </form>
+
+        
+
+            <!--  Ayemon Job List -->
+            <!--  Job List -->
+            @foreach($jobs as $job)
+            <div class = "card mb-3">
+                <div class = "card-body">                    
+                    <h4 class = "card-title"><b>{{$job['title']}}</b></h4></br>
+                    <h5>{{$job['location']}}</h5></br>
+                    {!!\Illuminate\Support\Str::limit( $job['description'], 150, $end = '...')!!}
+                    <a href="{{ url('jobDetail/getDetail/'.$job->id) }}">more</a>                    
+                </div>                    
             </div>
-            <!-- Specialization List -->
+            @endforeach 
             <div class= "btn-group mb-2 mt-3">
                 <ul>
                     @foreach($specializations as $specialization)
-                    <a href="#" class="btn border mb-2" style = "border-radius: 10px; padding: 5px 5px;">
+                    <a href="{{url('home/jobsListwithSpec/'.$specialization->id)}}" class="btn border mb-2" style = "border-radius: 10px; padding: 5px 5px;">
                         {{$specialization['name']}}
                     </a>
                     @endforeach

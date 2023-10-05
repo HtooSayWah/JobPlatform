@@ -31,7 +31,7 @@
                 <select class="form-select" name="employer_id">
                     @foreach ($emps as $emp)
                         <option value="{{ $emp->id }}">
-                        {{ $emp->name }}
+                        {{ $emp->orgname }}
                         </option>
                     @endforeach
                 </select>
