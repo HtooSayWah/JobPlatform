@@ -50,6 +50,12 @@
                                 + Post Job
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-success"
+                                href="{{ url('employer/add') }}">
+                                + Add Employer
+                                </a>
+                            </li>
                             @endif
                         
                             <!-- <li class="nav-item">

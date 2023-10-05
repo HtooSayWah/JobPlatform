@@ -11,7 +11,8 @@ class EmployerController extends Controller
     //
     public function add()
     {   
-        return view('admin.employer.add');
+        //resources\views\employer
+        return view('employer.add');
     }
 
     public function create()
